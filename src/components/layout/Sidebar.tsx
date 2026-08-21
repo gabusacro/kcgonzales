@@ -97,13 +97,15 @@ export function Sidebar() {
       <div className="flex-1" />
 
       <div className="mx-1.5 my-2.5 border-t border-border" />
-      <Link
-        href="/"
-        className="flex items-center gap-2.5 rounded-lg px-2.5 py-2.5 text-[13.5px] font-medium text-muted hover:bg-background"
-      >
-        <LogOut size={18} strokeWidth={1.8} className="text-muted-2" />
-        Logout
-      </Link>
+      <form action="/auth/signout" method="post">
+        <button
+          type="submit"
+          className="flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2.5 text-left text-[13.5px] font-medium text-muted hover:bg-background"
+        >
+          <LogOut size={18} strokeWidth={1.8} className="text-muted-2" />
+          Logout
+        </button>
+      </form>
     </aside>
   );
 }

@@ -1,0 +1,358 @@
+University of Science and Technology of Southern Philippines216073462
+USTP-Villanueva Campus
+
+
+“Design and Development of a Web-Based Supply and Property Management System with Integrated Inventory and Consumable Release Tracking for the University of Science and Technology of the Southern Philippines”
+
+A capstone submitted in partial fulfillment of the requirements for the degree of Bachelor of Science in Information Technology
+
+
+Members:
+Chareiz D. Rara
+Dianne Jane U. Arquio
+Kc Louise A. Gonzales
+Vince V. Cerenuela
+
+May 28, 2026
+
+Table of Contents
+ TOC \h \u \z \t "Heading 1,1,Heading 2,2,Heading 3,3,"CHAPTER I	2
+Introduction	2
+Statement of the Problem	5
+Objectives of the Study	7
+Conceptual Framework	9
+Significance of the Study	11
+Scope and Limitations	13
+Definition of Terms	14
+CHAPTER II	17
+Review of Related Literature and Studies	17
+Property and Supply Management System	18
+Inventory Tracking System	20
+Consumable Release Tracking System	22
+Computerized Inventory Management System	24
+CHAPTER III	26
+Methodology	26
+Research Design	27
+Software Development Methodology	28
+Description of Agile Phases	28
+Requirements Analysis	32
+Functional Requirements	33
+Non-Functional Requirements	34
+Hardware Requirements	34
+Software Requirements	35
+Mockup/UI Design	42
+REFERENCES	58
+
+
+CHAPTER I
+This chapter includes the introduction, statement of the problem, objectives of the study, conceptual framework, significance of the study, scope and limitations, and definition of terms. It discusses the inventory management practices and challenges of the Supply and Property Management Unit of the University of Science and Technology of the Southern Philippines and presents the proposed Design and Development of a Web-Based Supply and Property Management System with Integrated Inventory and Consumable Release Tracking to improve inventory monitoring, reporting, and operational efficiency.
+
+Introduction
+This chapter presents the background and context of the study, emphasizing the importance of efficient supply and property management in educational institutions and the challenges associated with manual and spreadsheet-based inventory processes. It discusses the existing inventory and consumable supply management practices within the University of Science and Technology of the Southern Philippines (USTP), including the monitoring and release of consumable supplies handled by the Supply and Property Management Unit. The chapter also highlights issues such as inaccurate inventory tracking, delays in the release of supplies, duplication of records, and difficulties in generating timely reports caused by traditional manual systems. Furthermore, it identifies the limitations of the current inventory management approach and establishes the need for a computerized and centralized system. Finally, the chapter introduces the proposed Web-Based Supply and Property Management System with Integrated Inventory and Consumable Release Tracking as a solution to improve operational efficiency, inventory accuracy, real-time monitoring, report generation, and decision-making within the university. 
+
+The continuous advancement of technology has transformed the way organizations manage records, inventory, and operational processes. Many institutions now adopt computerized inventory management systems to improve efficiency, accuracy, transparency, and real-time monitoring of supplies and properties. Modern inventory systems provide automated tracking, centralized databases, and report generation features that help reduce manual errors and improve decision-making processes (Martinez et al., 2024).
+Inventory management plays an important role in educational institutions because it ensures the proper recording, monitoring, storage, and distribution of institutional resources. Effective inventory systems help maintain accurate records of supplies, equipment, and consumable items necessary for academic and administrative operations. According to Santos et al. (2021), automated inventory systems improve inventory tracking efficiency and minimize document loss compared to manual processes.
+Despite technological advancements, many institutions still rely on manual and spreadsheet-based methods in monitoring consumable supplies and inventory transactions. These traditional methods often result in inaccurate tracking, delays in supply release, duplication of records, and difficulty in generating reports. Reyes and Cruz (2020) emphasized that manual inventory systems increase the risk of human error and inefficient resource monitoring.
+At the University of Science and Technology of the Southern Philippines (USTP), the Supply and Property Management Unit is responsible for managing campus inventory, monitoring supplies, and facilitating the release of consumable items to faculty and staff. Although the university currently utilizes the General Inventory and Asset Management System (GIAMS) for certain inventory functions, the system does not fully support the release and tracking of consumable supplies.
+To address these challenges, this study proposes the design and development of a Web-Based Supply and Property Management System with Integrated Inventory and Consumable Release Tracking for USTP. The proposed system aims to automate inventory monitoring, improve consumable release tracking, generate accurate reports, and enhance operational efficiency within the university.
+
+Statement of the Problem
+The Supply and Property Management Unit of the University of Science and Technology of the Southern Philippines (USTP) experiences significant challenges in the release and tracking of consumable supplies due to the continued use of manual and spreadsheet-based inventory processes. Although the university utilizes the General Inventory and Asset Management System (GIAMS) for certain inventory functions, the system does not fully support the monitoring and tracking of consumable supply releases. These challenges affect the accuracy, efficiency, and reliability of inventory management operations within the university.
+Inaccurate Tracking of Consumable Supplies
+The manual recording and monitoring of consumable supplies often result in discrepancies between the actual stock and recorded inventory data. This leads to inaccurate inventory records, making it difficult for personnel to determine the exact availability of supplies and monitor inventory movement effectively.
+Delays in the Release of Supplies
+The current manual process in approving and releasing consumable supplies causes delays in transactions and processing time. The absence of an automated tracking system slows down the release procedure and affects the timely availability of supplies needed by faculty and staff.
+Duplication and Mismatch of Records
+Manual and spreadsheet-based inventory monitoring increases the possibility of duplicated entries and mismatched records. These inconsistencies create confusion in tracking released items and affect the reliability of inventory reports and stock monitoring.
+Difficulty in Monitoring Incoming and Outgoing Supplies
+The existing system lacks real-time monitoring of incoming and outgoing consumable supplies. As a result, supply personnel experience difficulty in tracking stock movement, monitoring item availability, and identifying shortages or overstocked items promptly.
+Delayed Generation of Reports
+The manual preparation of inventory documents such as Requisition and Issue Slips (RIS), stock cards, and inventory reports consumes significant time and effort. This results in delays in generating accurate and updated reports needed for monitoring and decision-making.
+High Risk of Human Error
+The dependence on manual data entry and physical recording increases the likelihood of human errors such as incorrect encoding, missing records, and inaccurate categorization of supplies. These errors negatively affect inventory accuracy and operational efficiency.
+
+Lack of Centralized Inventory Monitoring
+The absence of a centralized and integrated system makes inventory monitoring and consumable release tracking difficult to manage efficiently. Information is scattered across different files and spreadsheets, making retrieval and updating of records time-consuming and less reliable.
+
+ Objectives of the Study
+The main objective of this study is to design and develop a Web-Based Supply and Property Management System with Integrated Inventory and Consumable Release Tracking for the University of Science and Technology of the Southern Philippines (USTP) capable of efficiently recording, monitoring, tracking, and managing inventory data for consumable supplies, office materials, and other institutional resources. The proposed system aims to provide accurate and real-time inventory information to improve consumable supply monitoring, reduce delays in supply release, minimize mismatched records and human errors, and support faster decision-making within the Supply and Property Management Unit. This initiative seeks to provide USTP with a reliable, organized, and automated inventory management process that promotes transparency, accountability, and operational efficiency.
+Specifically, this study aims to:
+Develop a Web-Based Supply and Property Management System capable of recording, tracking, and managing inventory items, consumable supplies, and supply transactions through a centralized database system.
+Implement an inventory and consumable release monitoring feature that provides real-time updates on stock levels, item availability, supply issuance, and replenishment to minimize delays in release and mismatched inventory records.
+Store and maintain inventory and consumable release records electronically to improve data security, reduce the risk of missing records, and allow easier retrieval of information by authorized personnel.
+Generate accurate and timely reports such as Requisition and Issue Slips (RIS), stock cards, inventory summaries, and consumable release reports to support effective monitoring and decision-making within the Supply and Property Management Unit.
+Evaluate the developed system in terms of usability, functionality, efficiency, reliability, and security based on ISO/IEC 25010 standards to determine its effectiveness in meeting the operational needs of the Supply and Property Management Unit of USTP.
+
+
+Conceptual Framework
+This study is anchored on the Input-Process-Output (IPO) Model, which serves as the conceptual framework for the development of the Web-Based Supply and Property Management System with Integrated Inventory and Consumable Release Tracking for the University of Science and Technology of the Southern Philippines (USTP). The IPO Model illustrates the systematic flow of data within the proposed system, showing how inventory and consumable supply information are processed to generate accurate reports, real-time inventory monitoring, and efficient consumable release tracking. The framework demonstrates how the system transforms inputs such as inventory records, supply transactions, and user information into meaningful outputs that support efficient supply and property management operations within the university.
+
+The framework explains how inventory and consumable supply-related data are collected, processed, and transformed into useful information that improves accuracy, transparency, and efficiency in managing supplies and properties within the Supply and Property Management Unit of the University of Science and Technology of the Southern Philippines (USTP). Through this model, the relationship between the system’s inputs, processes, and outputs is clearly presented to guide the development and functionality of the proposed system.
+Input
+The input component includes Inventory Records, Property Data, Supply Transactions, Delivery Information, and User Information. These data serve as the primary information needed by the system for monitoring inventory, processing consumable releases, updating stock records, and managing user access within the Supply and Property Management Unit.
+Process
+The process component involves Data Entry and Validation, Inventory Monitoring, Consumable Release Processing, Stock Updating, Report Generation, and User Authentication. The system processes and stores inventory-related information in a centralized database, validates encoded data, updates inventory records in real time, monitors stock movement, processes the release of consumable supplies, and generates accurate reports efficiently.
+Output
+The output component of the system includes a Web-Based Supply and Property Management System capable of producing Accurate Inventory Records, Automated Requisition and Issue Slips (RIS) and Stock Cards, Real-Time Tracking of consumable supplies, Comprehensive Reports, and Improved Operational Efficiency. These outputs provide reliable and organized information that supports effective monitoring, transparency, accountability, and faster decision-making within the university.
+
+Significance of the Study
+This study is significant because it proposes the development of a Web-Based Supply and Property Management System with Integrated Inventory and Consumable Release Tracking for the University of Science and Technology of the Southern Philippines (USTP). The proposed system aims to improve the efficiency, accuracy, and reliability of inventory monitoring and consumable supply release processes within the university.
+The study will benefit the following:
+
+Supply and Property Management Unit
+The proposed system will help the Supply and Property Management Unit improve the monitoring and tracking of consumable supplies through automated inventory processes. It will reduce manual workload, minimize errors in recording transactions, provide real-time inventory updates, and generate accurate reports efficiently.
+University Administration
+The university administration will benefit from accurate and organized inventory reports that support better decision-making, resource allocation, and monitoring of institutional supplies and properties. The system will also enhance transparency and accountability in inventory operations.
+Faculty and Staff
+Faculty and staff members will benefit from a faster and more organized release process for office and consumable supplies. The system can reduce delays in processing requests and improve the availability of necessary resources for academic and administrative activities.
+Supply Personnel
+Supply personnel will benefit from a centralized database that simplifies inventory recording, monitoring, and report generation. The system will improve efficiency in tracking stock movement, monitoring supply availability, and maintaining accurate inventory records.
+
+
+Scope and Limitations
+This study focuses on the design and development of a Web-Based Supply and Property Management System with Integrated Inventory and Consumable Release Tracking for the University of Science and Technology of the Southern Philippines (USTP). The system includes inventory management, consumable release tracking, monitoring of incoming and outgoing supplies, RIS and stock card generation, report generation, and user management. It aims to provide a centralized and automated platform that improves inventory accuracy, minimizes manual errors, enhances real-time monitoring, and supports efficient report generation and decision-making within the Supply and Property Management Unit. Faculty, staff, and university administrators will also benefit from a faster, more organized, and transparent inventory process.
+The system will be deployed locally within the USTP campus network as a Progressive Web Application (PWA) accessible to authorized personnel. However, the study is limited only to the inventory and consumable supply operations of the Supply and Property Management Unit. Integration with external suppliers, online procurement systems, barcode or RFID technologies, other university information systems, and advanced asset lifecycle management features are beyond the scope of the study. The system also depends on the accuracy of data entered by authorized users.
+Definition of Terms
+This section presents the important terms used in the study together with their brief meanings to help readers better understand the concepts, processes, and components involved in the proposed system.
+Administrator - Refers to the authorized personnel responsible for managing user accounts, system settings, categories, and monitoring the overall operation of the proposed Web-Based Supply and Property Management System. 
+Agile Software Development Model - A software development methodology that follows an iterative and incremental approach in developing systems through continuous planning, design, development, testing, release, and feedback processes. 
+Categories - Refers to the classification of inventory items and consumable supplies according to their type, purpose, or usage within the Supply and Property Management Unit.
+Consumable Release Tracking - The process of monitoring, recording, and managing the issuance and distribution of consumable supplies to authorized faculty and staff members. 
+Consumable Supplies -Refers to office materials and supplies that are regularly used and depleted over time such as paper, ink, folders, pens, and other institutional resources. 
+Database - An organized collection of electronically stored data used for managing inventory records, delivery transactions, user information, and consumable release records within the system.
+Deliveries - Refers to incoming supply transactions recorded within the system, including supplier information, quantity of items received, and delivery details.
+Inventory - Refers to the collection of institutional supplies, materials, and resources maintained, monitored, and managed by the Supply and Property Management Unit.
+Inventory Management - The process of recording, monitoring, organizing, storing, and controlling inventory items to maintain accurate stock levels and efficient resource allocation. 
+Inventory Monitoring - The process of tracking inventory movement, stock availability, item quantities, and supply transactions in real-time using the proposed system. 
+Local Area Network (LAN) - A communication network used within the university campus that allows authorized users to access the proposed web-based system.
+Node.js - A server-side JavaScript runtime environment used in developing and managing the backend functionality of the proposed system.
+Progressive Web Application (PWA) - A web-based application that combines the functionality of a website and a mobile application, allowing users to access the system through a web browser within the university network. 
+ReactJS - A JavaScript library used for creating responsive and interactive user interfaces for the proposed Web-Based Supply and Property Management System.
+Real-Time Monitoring - A system feature that allows users to instantly track inventory levels, stock movement, consumable releases, and transaction updates as they occur within the system. 
+Requisition and Issue Slip (RIS) - An official document generated by the system for requesting, approving, and releasing consumable supplies within the university. 
+Supply and Property Management System - Refers to the proposed Web-Based Supply and Property Management System with Integrated Inventory and Consumable Release Tracking developed for the University of Science and Technology of the Southern Philippines (USTP). 
+Supply and Property Management Unit - The university office responsible for monitoring inventory records, managing supplies and properties, and facilitating the release of consumable items to faculty and staff. 
+User Authentication - A security feature of the system that verifies the identity of authorized users before granting access to the system functions and records. 
+Web-Based System - A computerized information system accessible through a web browser over a network connection, allowing users to perform inventory and consumable release management online.
+
+CHAPTER II
+Review of Related Literature and Studies
+This chapter presents the review of related literature and studies relevant to supply and property management systems, inventory tracking systems, consumable release monitoring, and computerized inventory management. It discusses concepts, technologies, and existing systems related to inventory control, database management, automation, and web-based information systems used in managing supplies, properties, and consumable items within institutions and organizations.
+The chapter also includes local and foreign literature and studies focusing on supply and property management systems, inventory tracking systems, and automated consumable release monitoring. These studies provide insights into existing technologies, methods, and best practices that serve as the foundation for identifying the research gap addressed by the present study. Furthermore, the reviewed literature supports the need for a web-based and centralized inventory management system capable of improving accuracy, transparency, real-time monitoring, and operational efficiency within the Supply and Property Management Unit of the University of Science and Technology of the Southern Philippines (USTP).
+
+Property and Supply Management System
+Local Literature
+In the Philippine public sector and educational ecosystem, property and supply management serves as a critical operational pillar. According to Carolino et al. (2017), traditional pen-and-paper or localized spreadsheet tracking frequently disrupts the generation of critical administrative reports, placing an immense burden on school supply offices. This operational deficit underscores an immediate national demand for localized automation.
+Further assessment by ResearchGate (2024) highlights that structural physical assets and consumable properties function as the lifeblood of public educational institutions. When managed through manual frameworks, organizations become highly susceptible to tracking redundancies, computational errors, and delayed response cycles. Implementing automated tracking infrastructures removes data-entry bottlenecks, bridges accountability gaps, and significantly extends the useful lifecycle of state-acquired institutional assets.
+Furthermore, as established by Philippine E-Journals (2023), shifting toward dedicated electronic property platforms fosters public accountability and stakeholder confidence. Transitioning away from legacy methods ensures precise institutional bookkeeping, simplifies complex logistical audits, and promotes a more equitable, transparent distribution of materials across academic departments.
+Foreign Literature
+On the global stage, modern literature establishes property asset management as a core determinant of financial sustainability and strategic organizational growth. As outlined by Scribd (2023), fixed assets and inventory demand a high degree of capital investment. Consequently, outdated or passive storage workflows can quickly turn valuable property holdings into costly administrative liabilities. Incorporating strategic digital frameworks empowers decision-makers to exploit development opportunities, properly align resources with organizational goals, and adhere strictly to global compliance standards.
+In tandem, ResearchGate (2024) emphasizes that web-based management environments successfully eliminate spatial and informational barriers between key institutional actors, including warehouse staff, property custodians, and end consumers. These cloud-driven infrastructures establish real-time visibility and modular scalability, effectively lowering overhead costs while maintaining optimal inventory equilibriums.
+By unifying data onto a single web interface, modern supply configurations mitigate systemic uncertainties and provide organizations with the structural flexibility required to respond rapidly to changing internal and external logistical demands (Jurnal Polgan, 2024).
+
+Inventory Tracking System
+Local Literature
+In the Philippine academic and corporate landscape, the transition from classic pen-and-paper or standalone spreadsheet logging to comprehensive digital tools has proven instrumental in safeguarding state-acquired assets. According to Tanaman et al. (2023), manual procedures limit organizational flexibility and prevent real-time stock assessments, whereas localized web platforms establish centralized database configurations that secure data integrity and ensure rapid reporting intervals.
+Within public state universities and higher education contexts, tracking equipment, fixed assets, and recurring operational resources poses unique administrative bottlenecks. Research by Usita et al. (2025) emphasizes that integrating customized web-based inventory frameworks mitigates operational blind spots, drastically minimizes human data-entry errors, and helps resource-constrained institutions meet strict regulatory compliance standards. Modern iterations have introduced advanced data-capture tools to optimize this process; for instance, localized university frameworks utilizing integrated Quick Response (QR) code scanning allow custodians to dynamically monitor, organize, and catalog institutional hardware while eliminating time-consuming physical counts (IJEAIS, 2024).
+
+Foreign Literature
+Globally, contemporary literature frames automated inventory tracking as a cornerstone of institutional sustainability, risk management, and capital optimization. Passively managed warehouses frequently transform high-value physical holdings into severe financial and logistical liabilities due to unexpected stockouts or structural obsolescence. According to Chila and Susi (2019), implementing custom web-based tracking nodes guarantees real-time item visibility across diverse organizational departments, effectively bridging communication gaps between procurement officers and facility staff while reducing administrative overhead.
+Furthermore, academic institutions and laboratories worldwide face unique material control issues regarding critical operational tracking. Dennert et al. (2021) point out that traditional local tracking structures lack scalable data architectures, making centralized web deployment vital for generating multi-department transactional histories. By migrating inventory processes to unified, cloud-capable interfaces, contemporary organizations gain the capability to optimize economic reorder points, execute swift logistical audits, and dynamically secure high-accuracy asset traceabilities (Ho et al., 2021).
+
+Consumable Release Tracking System
+Local Literature
+In the administrative landscape of Philippine public institutions and state universities, tracking the release of consumable items such as office stationery, laboratory supplies, and everyday maintenance materials presents distinct logistical hurdles. According to Antonio (2023), manual recording methods for release requests often cause structural inefficiencies, resulting in inaccurate inventory counts and unequal access to resources across academic units. Implementing a digitalized platform to track consumable distributions helps overcome these traditional process constraints by providing precise, real-time data transparency that strengthens organizational accountability and public trust.
+Furthermore, public sector agencies frequently suffer from a lack of centralized monitoring during the materials issuance phase. As emphasized by Gumilao (2024), relying on manual data entry heavily increases an organization's susceptibility to human error and delays critical reporting timelines. Moving toward an automated tracking network ensures immediate data validation at the point of release. This transition eliminates operational redundancy, optimizes overall resource distribution, and enables administrators to generate accurate consumption summaries needed for strategic decision-making.
+
+Foreign Literature
+On a global scale, contemporary research emphasizes that the optimization of short-lifecycle assets and consumable stocks relies on integrated, high-visibility distribution platforms. Research by Nasr (2025) demonstrates that web-based tracking applications help eliminate communication gaps between storage staff, warehouse managers, and final consumers. Employing dynamic monitoring tools minimizes fulfillment errors, decreases item handling delays, and supports role-based access controls to protect sensitive organizational assets.
+Additionally, managing consumable stock demands consistent monitoring to prevent unexpected shortages or excessive accumulation of obsolete items. As highlighted by Manga et al. (2025), legacy manual workflows struggle to support real-time adjustments, which frequently compromises customer satisfaction and reduces financial control. Implementing web-based distribution systems allows organizations to lower administrative overhead, establish stable inventory levels, and make informed choices throughout the entire lifecycle of corporate and institutional property.
+
+Computerized Inventory Management System
+Local Literature
+In the Philippine organizational and educational landscape, transitioning from traditional decentralized operations to a fully computerized inventory framework is essential for modernizing institutional supply chains. In public offices and academic institutions alike, manual or standalone file registries often complicate daily logistics, making comprehensive data retrieval difficult during mandatory audits. Research by Macabales and Villaruz (2023) points out that implementing dedicated desktop and web-based inventory systems establishes structural data accuracy, speeds up physical asset reconciliations, and provides operational transparency that aligns with national public sector auditing standards.
+Moreover, the integration of specialized digital tracking solutions directly addresses administrative backlogs in localized warehousing. When asset management relies entirely on human data entry, organizations frequently suffer from tracking redundancies, delayed requisition approvals, and inaccurate stock assessments. According to Pascual et al. (2024), computerized architectures with structured databases enable supply officers to dynamically monitor material lifecycles, eliminate transcription errors, and generate instant, real-time reports. This systematic shift significantly enhances institutional efficiency and ensures a more equitable distribution of equipment and consumables across various departments.
+
+Foreign Literature
+Globally, contemporary literature frames computerized inventory management as a critical foundation for operational resilience, financial sustainability, and risk mitigation. Organizations that maintain outdated, non-automated logging systems often experience severe info-fragmentation, turning high-value physical assets into administrative liabilities due to sudden stockouts or over-purchasing. As highlighted by Mishra and Sharma (2021), a unified computerized configuration functions as a single source of truth, removing communication barriers between purchasing managers and warehouse personnel while drastically lowering systemic operational overhead.
+Furthermore, modern corporate and academic enterprises face continuous pressure to achieve maximum resource utility while scaling their operations. Legacy database models lack the flexible computing power needed to calculate complex inventory parameters, such as dynamic economic order points or automated depreciation schedules. According to Kembro et al. (2022), integrating scalable computerized software allows institutional administrators to predict future procurement demands with high precision, minimize material waste, and adapt quickly to shifting logistical patterns. By anchoring asset workflows within a centralized digital space, global organizations gain the systemic agility required to protect high-value holdings and optimize their long-term capital investments.
+
+CHAPTER III
+Methodology
+	This chapter presents the methodology used in the design and development of the Web-Based Supply and Property Management System with Integrated Inventory and Consumable Release Tracking for the University of Science and Technology of the Southern Philippines (USTP). It includes the research design, data gathering procedures, system development process, and software development approach used in building the proposed system.
+
+The study adopts the Agile Software Development Model, which follows an iterative and incremental approach in developing the system. This methodology allows continuous collaboration with end-users, frequent testing, and flexibility in improving the system throughout the development process. Through Agile methodology, the researchers can continuously refine system features based on feedback gathered from the Supply and Property Management Unit personnel, ensuring that the developed system effectively addresses the operational needs of inventory management and consumable release tracking within the university.
+
+Research Design
+This study utilized the Agile Software Development Model in developing the proposed Web-Based Supply and Property Management System with Integrated Inventory and Consumable Release Tracking for the University of Science and Technology of the Southern Philippines (USTP). Agile is a software development methodology that focuses on iterative development, flexibility, continuous improvement, and active user participation throughout the development process.
+The Agile model was chosen because it allows the researchers to divide the proposed system into smaller functional modules and develop them through a series of iterations or development cycles. Each iteration includes planning, system design, coding, testing, evaluation, and user feedback. This process enables the researchers to continuously improve the system based on the operational needs and recommendations of the Supply and Property Management Unit personnel.
+Through the Agile approach, the researchers can identify and address issues early in the development process, adapt to changes in system requirements, and ensure that the proposed system effectively supports inventory monitoring and consumable release tracking operations within the university. The model also promotes collaboration between the researchers and users, resulting in a more efficient, accurate, and user-centered web-based supply and property management system.
+
+Software Development Methodology
+The study follows the Agile Software Development Model consisting of six major phases: Plan, Design, Develop, Test, Release, and Feedback. These phases are continuously repeated throughout the development process to gradually improve the proposed Web-Based Supply and Property Management System with Integrated Inventory and Consumable Release Tracking for the University of Science and Technology of the Southern Philippines (USTP).
+
+Figure 3.1: Research Methodology(Agile Method)
+Description of Agile Phases
+This section describes the different phases of the Agile Software Development Model used in developing the proposed system. Agile was chosen because it allows continuous improvement, flexibility, regular testing, and active collaboration between the developers and users throughout the system development process. Through Agile, the researchers can easily modify and improve system features based on user feedback and operational requirements. Each phase focuses on iterative development, testing, and user collaboration to ensure that the proposed system effectively meets the needs of the organization.
+
+Figure 3.2: Planning
+
+Phase 1: Plan
+In this phase, the researchers gathered system requirements through interviews, observation, and consultation with personnel from the Supply and Property Management Unit of USTP. The identified problems related to inventory monitoring and consumable release tracking were analyzed and translated into system requirements, features, and functionalities. Tasks and system modules were prioritized based on urgency and operational importance.
+System Architecture
+
+Phase 2: Design
+During this phase, the researchers created the system architecture, database structure, and user interface (UI) design of the proposed system. Wireframes, prototypes, and system flow designs were developed to visualize the functionality and workflow of the system. This phase ensured that the proposed design aligned with the operational needs of the Supply and Property Management Unit and provided a user-friendly interface for authorized personnel.
+Phase 3: Develop
+In this phase, the actual coding and implementation of the system were carried out. The researchers developed system modules such as inventory recording, consumable release tracking, stock monitoring, report generation, RIS generation, stock card generation, and user authentication. Development was performed incrementally to allow continuous improvement and integration of system features throughout the process.
+Phase 4: Test
+The developed Web-Based Supply and Property Management System underwent functionality testing to identify errors, bugs, and inconsistencies within the system. The researchers tested major system functions and modules including inventory recording, consumable supply release, stock monitoring, report generation, RIS generation, stock card generation, search functionality, and user authentication.
+This testing ensured that the system performed according to the specified requirements and that all features operated accurately, efficiently, and reliably. The functionality testing also verified the correctness and reliability of the system before deployment to the intended users.
+Phase 5: Release
+After successful testing, the system was deployed and introduced to the personnel of the Supply and Property Management Unit of USTP. A working version of the system was made available for actual use, monitoring, and evaluation within the university environment.
+Phase 6: Feedback
+In this phase, feedback and recommendations from users were collected after the implementation and actual usage of the system. The researchers gathered comments regarding system performance, usability, functionality, reliability, and overall user satisfaction. The collected feedback was used to identify areas for improvement and further enhance the effectiveness of the proposed system.
+
+Requirements Analysis
+This section presents the functional and non-functional requirements, including the hardware and software requirements needed for the development and implementation of the proposed Web-Based Supply and Property Management System with Integrated Inventory and Consumable Release Tracking.
+
+Functional Requirements
+The proposed system shall provide the following functions:
+The system shall allow authorized users to log in and log out securely.
+The system shall manage user accounts and user roles.
+The system shall record and manage inventory items and supply information.
+The system shall categorize inventory and consumable items.
+The system shall record incoming deliveries and supply transactions.
+The system shall process consumable supply releases through RIS generation.
+The system shall monitor stock quantities and inventory balances in real-time.
+The system shall allow faculty and staff to request supplies.
+The system shall track request status and release transactions.
+The system shall generate reports such as stock cards, RIS forms, monthly reports, quarterly reports, yearly reports, and transaction history reports.
+The system shall provide search and filtering functions for inventory records and transactions.
+The system shall store and retrieve inventory records through a centralized database system.
+
+Non-Functional Requirements
+The proposed system shall possess the following quality attributes:
+Security - The system shall ensure that only authorized users can access system features and inventory records through secure login authentication and role-based access.
+Reliability - The system shall provide accurate and consistent inventory data and minimize data loss during operations.
+Usability - The system shall have a user-friendly and easy-to-navigate interface for administrators, supply officers, faculty, and staff.
+Performance - The system shall process inventory transactions, report generation, and data retrieval efficiently with minimal delay.
+Maintainability - The system shall be easy to update, maintain, and improve for future enhancements and modifications.
+Availability - The system shall be accessible within the university’s local network whenever authorized personnel need to use the system.
+
+Hardware Requirements
+Processor – Intel Core i3 or equivalent processor used for handling system operations, inventory processing, and report generation. 
+Memory (RAM) – 4 GB RAM used to support multitasking and improve system performance. 
+Storage – 256 GB SSD or 500 GB HDD used for storing inventory records, reports, and system files. 
+Monitor – 1366 × 768 resolution monitor used for displaying the system interface and inventory information clearly. 
+Keyboard and Mouse – Standard input devices used for data entry, navigation, and system interaction. 
+Network Connection – LAN or Wi-Fi connection used for accessing the web-based system within the university network. 
+Printer – Used for printing RIS forms, stock cards, and inventory reports. 
+Software Requirements
+Operating System – Windows 10 or Windows 11 used for running the proposed system and development tools. 
+Web Browser – Google Chrome or Microsoft Edge used for accessing and operating the web-based system. 
+Frontend Framework – ReactJS, HTML, CSS, and JavaScript used for developing the user interface of the system. 
+Backend Framework – Node.js and Express.js used for server-side development and system processing. 
+Database Management System – MySQL used for storing and managing inventory and transaction records. 
+Code Editor – Visual Studio Code used for writing, editing, and debugging source code. 
+Local Server Environment – XAMPP or Node.js Server used for hosting and testing the system locally. 
+PDF Generator – Used for generating printable RIS forms, stock cards, and inventory reports.
+
+System Analysis 
+Figure 3.2: Timeline Gantt Chart
+A Timeline Gantt Chart is a project management tool used to present the schedule, duration, and sequence of activities involved in the development of a system or project. It visually displays the timeline of tasks using horizontal bars, where each bar represents a specific activity and its corresponding duration. In the proposed Web-Based Supply and Property Management System with Integrated Inventory and Consumable Release Tracking, the Timeline Gantt Chart serves as a guide for monitoring the progress of the study and system development process.
+The chart contains different project phases such as Planning, Requirements Gathering, Research Design, Developing, Testing, Evaluation, and Deployment. Each activity is assigned a specific timeframe to show when the task starts and ends. The horizontal bars represent the number of days or weeks allocated for every activity. Through this chart, the researchers can easily identify overlapping activities, monitor project progress, and ensure that all development phases are completed within the planned schedule.
+The Timeline Gantt Chart also helps in organizing tasks systematically and improving time management during the development process. It provides a clear overview of the workflow and allows the researchers to track whether the project is progressing according to the planned timeline.
+
+
+
+
+
+Figure 3.3: System Flowchart
+A System Flowchart is a visual representation of the step-by-step workflow and operations of the proposed Web-Based Supply and Property Management System. It illustrates how users interact with the system, starting from login authentication up to inventory management, delivery recording, RIS processing, stock monitoring, report generation, user management, and system log monitoring. The flowchart uses standard symbols such as ovals for start and end points, rectangles for processes, diamonds for decision-making, arrows for process flow, and database symbols for data storage. It also shows how the system validates user inputs and processes requests based on specific conditions, helping users and developers clearly understand the logical flow and overall operation of the system from beginning to end. 
+
+
+Figure 3.4: DATABASE SCHEMA/ERD
+A Database Schema or Entity Relationship Diagram (ERD) is a visual representation of the database structure used in the proposed Web-Based Supply and Property Management System. It shows the different tables or entities such as Users, Roles, Inventory Items, Categories, Deliveries, RIS Transactions, Requests, Reports, and System Logs, including their fields, primary keys, foreign keys, and relationships. The ERD illustrates how data is organized, stored, and connected within the system, such as one role having many users or one delivery containing multiple delivery items. It serves as the blueprint of the database architecture to ensure proper data organization, maintain data integrity, reduce redundancy, and support efficient storage and retrieval of inventory and transaction records. 
+
+Figure 3.5: Use Case Diagram
+A Use Case Diagram is a UML (Unified Modeling Language) diagram that illustrates the interaction between users and the proposed Web-Based Supply and Property Management System. It identifies the different actors such as the System Administrator, Supply and Property Officer, Faculty, and Staff, along with the specific functions they can perform based on their assigned roles and permissions. The diagram includes major system activities such as managing users and roles, configuring system settings, monitoring inventory, recording deliveries, processing RIS requests, generating reports, approving supply requests, and tracking request statuses. The connecting lines between actors and use cases represent user interactions with the system, helping developers and users clearly understand the scope, functionalities, and responsibilities within the system during analysis, design, and development.
+Mockup/UI Design
+
+Figure 3.1: Dashboard 
+In figure 3.7.1, the Dashboard Interface of the proposed Supply and Property Management System for the General Services Office (GSO) of the Municipality of Villanueva LGU is presented. The dashboard serves as the main interface displayed after the user successfully logs into the system. It provides a comprehensive overview of the current supply and property status and recent system activities.
+The dashboard displays four (4) key metric cards at the top of the interface, showing the total number of inventory items, the count of low stock items that have fallen below the reorder level, the number of deliveries received for the current month, and the total number of Release of Inventory Slips (RIS) processed for the current period. These metric cards allow authorized users to immediately assess the operational status of the supply office at a glance.
+Below the metric cards, the dashboard presents two (2) side-by-side panels. The left panel displays a horizontal bar chart showing the stock quantity distributed across all item categories such as Office Supplies, Janitorial, IT Supplies, Medical, and Electrical supplies, allowing users to visually compare stock levels per category. The right panel shows a list of pending supply requests submitted by Faculty and Staff end users, displaying the item name, requesting department, quantity, and current approval status. Through this interface, users can quickly navigate to different system modules such as Inventory, Deliveries, Releases (RIS), Reports, Manage Users, Roles, System Settings, and System Logs using the navigation menu located on the left side of the screen. At the bottom, a full-width low stock items table lists all items that have reached or fallen below their reorder level, including the item code, item name, category, unit, quantity on hand, reorder level, and status indicator. The dashboard helps improve inventory monitoring, supports faster decision-making, and provides organized access to all supply and property-related information.
+
+Figure 3.2: Inventory Management
+In Figure 3.2, the Inventory Management Interface of the proposed system is presented. This page is accessible to the Supply and Property Officer and serves as the central module for managing all inventory items recorded in the system.
+At the top of the interface, three (3) summary metric cards display the total number of items across all categories, the number of items currently below the reorder level, and the total number of active item categories. Below the metric cards, the main inventory table is displayed within a panel that includes a search bar for finding specific items by name or code, and a category dropdown filter to narrow down the displayed records by item classification.
+The inventory table contains the following columns: Item Code, Item Name, Category, Unit of Measurement, Quantity on Hand, Reorder Level, Status, and an Action column. The Status column uses color-coded badges to indicate the stock condition of each item "OK" displayed in green for items with sufficient stock, "Low" displayed in amber for items approaching the reorder threshold, and "Critical" displayed in red for items that have already fallen below the reorder level. An "Add Item" button is provided in the upper right of the panel, allowing the Supply Officer to register new inventory items into the system. Each row in the table has an edit icon that allows the officer to update item details. A pagination control at the bottom of the table allows the user to navigate through multiple pages of inventory records.
+
+Figure 3.3: Record Deliveries
+In Figure 3.3, the Record Deliveries Interface of the proposed system is presented. This page allows the Supply and Property Officer to record incoming supplies delivered by external suppliers, which automatically updates the inventory stock levels upon saving.
+The interface is divided into two (2) panels arranged side by side. The left panel contains the new delivery entry form, which includes input fields for the Delivery Reference Number, Date Delivered, Supplier Name, and Official Receipt or Purchase Order Number. A dropdown field allows the officer to select the name of the personnel who received the delivery. Below the header fields, a dynamic item entry section allows the officer to add multiple items to a single delivery record by selecting the item name, specifying the quantity received, and entering the unit cost. Added items are displayed in a summary table showing the item name, quantity, unit cost, and computed total cost. The cumulative total cost of all delivery items is displayed at the bottom of the form. A "Save Delivery" button finalizes and records the transaction into the database.
+The right panel displays a list of recent delivery records, showing the Delivery Reference Number, Supplier Name, Date, and the number of items included in each delivery. This allows the officer to quickly review previously recorded deliveries without leaving the current page.
+
+Figure 3.4: Process Consumable Release / RIS
+In Figure 3.4, the Process Consumable Release Interface, also referred to as the Requisition and Issue Slip (RIS) Module, is presented. This page is used by the Supply and Property Officer to process the release of consumable supplies to requesting departments or offices.
+The interface is organized into two (2) panels. The left panel contains the RIS entry form, which includes fields for the RIS Number, Release Date, Requesting Department, and SCIO (School or Campus/Organizational Unit). A text area is provided for the officer to encode the stated purpose of the release. Below the header information, an item selection section allows the officer to specify the items to be released and the corresponding quantities. As items are added, they appear in a summary table that shows the item name, quantity requested, and current stock on hand. Items with critically low stock are flagged with a color-coded badge directly within the table to alert the officer before confirming the release. Action buttons at the bottom of the form allow the officer to either save the record as a draft or submit it for approval.
+The right panel presents the RIS history table, which lists previously submitted release slips with columns for RIS Number, Department, Date, and Status. A status filter dropdown and an export button are available above the table, allowing the officer to filter records by approval status and download reports as needed.
+
+Figure 3.5 Reports
+In Figure 3.5, the Reports Generation Interface of the proposed system is presented. This page provides the Supply and Property Officer with the ability to generate, view, and export various official reports required by the General Services Office.
+At the top of the interface, five (5) report type cards are displayed in a horizontal grid, each representing a specific report that the system can produce. These include the Stock Card, which serves as a per-item ledger of all receipts and issuances; the RIS / Release Form, which generates a printable copy of a specific release slip; the Monthly / Quarterly / Yearly Reports, which summarize supply activities over a selected time period; the Per SCIO Report, which consolidates supply data by campus or organizational unit; and the Transaction History Per Item, which provides a complete movement history for a selected inventory item.
+The currently selected report type is highlighted with a distinct border to indicate the active report being previewed. Below the report type selector, a report preview panel displays a sample output of the selected report. In the case of the Stock Card, the preview shows the item details at the top including the item code, unit of measure, and reorder level, followed by a tabular ledger containing columns for Date, Reference Number, Receipt Quantity, Issue Quantity, and Running Balance. Print and Export buttons are provided in the upper right of the preview panel, allowing the officer to produce a hard copy or download the report in the desired file format.
+
+Figure 3.6: Request Supplies(Faculty and Staff — End User View)
+In Figure 3.6, the Request Supplies Interface for Faculty and Staff end users is presented. This page is specifically designed for non-administrative users who need to submit requests for consumable supplies from the supply office.
+The interface is divided into two (2) panels. The left panel contains the supply request form, which includes a dropdown field for selecting the requesting department, a date field for specifying when the supplies are needed, and a text area for stating the purpose of the request. An item selection section below allows the requestor to choose items from the available inventory and specify the quantity needed for each. Selected items are listed in a summary table showing the item name and quantity. A "Submit Request" button at the bottom of the form sends the request to the Supply and Property Officer for review and approval.
+The right panel is divided into two sections. The upper section shows a tabular list of all previous requests submitted by the logged-in user, displaying the Reference Number, Date, Number of Items, and Approval Status. The lower section shows the detailed information of the currently selected request, including the approval status, the name of the approving officer, the date of approval, and any remarks provided by the supply office. This allows end users to track the real-time status of all their supply requests without needing to contact the supply office directly.
+
+
+Figure 3.7: Manage Users
+In Figure 3.7, the Manage Users Interface of the proposed system is presented. This page is exclusively accessible to the System Administrator and is used to create, update, and manage the user accounts of all personnel who have access to the system.
+At the top of the user list panel, a search bar and a role filter dropdown allow the administrator to locate specific user accounts quickly. An "Add User" button in the upper right opens a form for registering a new system user. The main content area displays a user table with columns for a user avatar or initials, Full Name, Email Address, Assigned Role, SCIO or Department, Account Status, and an Action column. Each user's assigned role is displayed using a color-coded badge to visually distinguish between Admins, Supply Officers, Faculty, and Staff. The account status column uses a green "Active" badge for currently active accounts and a red "Inactive" badge for deactivated accounts. The edit icon in the Action column allows the administrator to modify user information, reset passwords, change roles, or deactivate accounts as necessary.
+
+Figure 3.8: Manage Roles
+In Figure 3.8, the Manage Roles Interface of the proposed system is presented. This page allows the System Administrator to define and configure the roles used within the system, as well as set the specific permissions associated with each role.
+The interface is divided into two (2) panels. The left panel displays the list of currently defined roles in the system, including Admin, Supply Officer, and Faculty/Staff. Each role card shows the role name, a brief description of its access level, and the number of users currently assigned to that role. The currently selected role is highlighted with a distinct border. A "New Role" button at the top of the panel allows the administrator to create additional roles if required.
+The right panel displays the permissions matrix for the selected role. Each system feature or module is listed as a row, accompanied by a toggle switch that the administrator can enable or disable to grant or restrict access. The permission items include functions such as managing inventory, recording deliveries, processing RIS, generating reports, managing users, configuring system settings, viewing system logs, and approving supply requests. A "Save Permissions" button at the bottom of the panel commits all changes made to the role's permission configuration.
+
+Figure 3.9: System Settings
+In Figure 3.9, the System Settings Interface of the proposed system is presented. This page is accessible only to the System Administrator and provides configuration options for the general operational parameters of the system.
+The interface is organized into two (2) columns. The left column contains a General Settings form that allows the administrator to define institution-level configurations, including the Institution Name, System Title, Fiscal Year Start month, Currency used in financial computations, and the Low Stock Notification Threshold expressed as a percentage of the reorder level. A "Save Changes" button at the bottom of the form applies all modifications to the system configuration.
+The right column is further divided into two (2) sub-panels. The upper sub-panel manages the list of item categories used throughout the system, displaying each category name and its active or inactive status, with an edit icon for modifying existing entries and an "Add" button for creating new categories. The lower sub-panel manages the units of measurement used when encoding inventory items, displaying the unit name and its standard abbreviation, with similar add and edit functionality. These settings ensure that the system's reference data remains accurate and consistent with the operational standards of the General Services Office.
+
+Figure 3.10:  System Logs
+In Figure 3.10, the System Logs Interface, also referred to as the Audit Trail Module, is presented. This page is exclusively accessible to the System Administrator and provides a complete chronological record of all actions performed by users within the system.
+At the top of the interface, a search bar allows the administrator to look up specific log entries by keyword, while two (2) dropdown filters enable filtering of records by Action Type  such as Login, Create, Update, and Delete and by the User who performed the action. An "Export" button allows the administrator to download the log records for documentation and audit purposes.
+The main content area presents the audit trail in a tabular format with the following columns: Timestamp, which records the exact date and time the action was performed; User, identifying the account that performed the action; Action, displayed as a color-coded badge indicating the type of operation; Module, identifying which part of the system was affected; and Description, providing a plain-language summary of the specific action taken. A pagination control at the bottom of the table allows the administrator to navigate through the complete history of system activity. This module ensures accountability and traceability of all transactions and administrative actions performed within the Supply and Property Management System.
+
+
+
+
+
+
+
+
+REFERENCES 
+Carolino, C. R. R., Tiquen Jr., E. H., Navarro, E. N. T., Trecene, J. K. D., & Quisumbing, L. A. (2017). Automated supplies and equipment inventory management system using barcode technology for LNU supply office. Journal of Computing and Innovation, 1(1). https://www.evsu.edu.ph/university-research-and-created-works/automated-supplies-and-equipment-inventory-management-system-using-barcode-technology-for-lnu-supply-office/
+Electronic Asset Inventory and Management System in School (e-AIMSS) for resource optimization and organizational productivity. (2023). Philippine E-Journals, 14(1). https://ejournals.ph/article.php?id=20227
+Information system-based supply chain management strategy to improve company operational performance. (2024). Journal of Management and Public Policy, 13(2). https://jurnal.polgan.ac.id/index.php/jmp/article/download/13575/2389
+Property management system review and thesis framework. (2023). Scribd Repository Documents. https://www.scribd.com/document/633752864/RRL-Thesis
+Web-based supply chain management system: Empowering enterprises with real-time data and performance dashboards. (2024). ResearchGate Publications. https://www.researchgate.net/publication/394147540_Web-Based_Supply_Chain_Management_System_Empowering_Enterprises_with_Real-Time_Data_and_Performance_Dashboards
+Web-based automated inventory management system for institutional property and asset tracking. (2024). ResearchGate Technical Reports. https://www.researchgate.net/publication/385269885_AUTOMATED_INVENTORY_MANAGEMENT_SYSTEM_FOR_DEPARTMENT_OF_EDUCATION_REGIONAL_OFFICE_IX
+Antonio, A. (2023). e-AIMSS (Electronic Asset Inventory and Management System in School) for resource optimization and organizational productivity. International Journal of Multidisciplinary Educational Research and Innovation, 1(3), 172-181. https://ejournals.ph/article.php?id=20227
+Gumilao, J. D. (2024). Automated inventory management system for Department of Education Regional Office IX (Unpublished master's thesis). Jose Rizal Memorial State University, Dapitan City, Philippines. https://www.researchgate.net/publication/385269885_AUTOMATED_INVENTORY_MANAGEMENT_SYSTEM_FOR_DEPARTMENT_OF_EDUCATION_REGIONAL_OFFICE_IX
+Manga, S. A., Bin, M. Z., & Salikon, M. (2025). AmuStock inventory management system. Journal of Advanced Logistics and Inventory Control, 3(1), 45-58. https://www.researchgate.net/publication/385269885_AUTOMATED_INVENTORY_MANAGEMENT_SYSTEM_FOR_DEPARTMENT_OF_EDUCATION_REGIONAL_OFFICE_IX
+Nasr, O. A. (2025). Web-based supply chain management system: Empowering enterprises with real-time data and performance dashboards. International Journal of Enterprise Information Systems, 17(2), 112-127. https://www.researchgate.net/publication/394147540_Web-Based_Supply_Chain_Management_System_Empowering_Enterprises_with_Real-Time_Data_and_Performance_Dashboards
+Chila, M., & Susi, L. C. (2019). Implementing a web-based inventory tracking system: A quality improvement initiative. Journal of Radiology Nursing, 38(4), 277–280. https://doi.org/10.1016/j.jradnu.2019.09.009
+Dennert, K., Friedrich, L., & Kumar, R. (2021). Creating an affordable, user-friendly electronic inventory system for lab samples. SLAS Technology, 26(3), 300–310. https://doi.org/10.1177/2472630320973594
+Ho, G. T. S., Tang, Y. M., Tsang, K. Y., Tang, V., & Wong, C. (2021). A blockchain-based system to enhance aircraft parts traceability and trackability for inventory management. Expert Systems with Applications, 179, Article 115101. https://doi.org/10.1016/j.eswa.2021.115101
+International Journal of Engineering and Advanced Information Systems [IJEAIS]. (2024). A web-based inventory management system for the properties and supplies office. International Journal of Academic Multidisciplinary Research, 8(7), 50–58.
+Tanaman, M. T., Lloyd, J., & Encarnacion, P. C. (2023). Web-based inventory management system. International Journal of Science and Research, 12(10), 415–422.
+Usita, M. M., Escultor, M. D., Garcia, A. B., Manuel, A. R., & Guinanao, G. O. (2025). Evaluating the acceptance of iProSES: A web based inventory system for food sector MSMEs using the Technology Acceptance Model (TAM). Asian Journal of Economics, Business and Accounting, 25(7), 43–54.https://doi.org/10.9734/ajeba/2025/v25i71342
+
+
+

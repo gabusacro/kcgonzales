@@ -7,23 +7,109 @@ import { Card } from "@/components/ui/Card";
 import { StatCard } from "@/components/ui/StatCard";
 import { Badge, stockStatusTone } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import { inventoryItems, dashboardMetrics } from "@/lib/mock-data";
+import { Modal, ModalFooter } from "@/components/ui/Modal";
+import { inventoryItems, dashboardMetrics, categories as categoryRefs, unitsOfMeasure } from "@/lib/mock-data";
+import type { InventoryItem, StockStatus } from "@/lib/types";
 
-const categories = ["All categories", ...Array.from(new Set(inventoryItems.map((i) => i.category)))];
+// Simple business rule for auto-classifying stock status when an item is
+// added/edited: below half the reorder level is Critical, at/below the
+// reorder level is Low, otherwise OK.
+function computeStatus(onHand: number, reorderLevel: number): StockStatus {
+  if (reorderLevel <= 0) return "OK";
+  if (onHand <= reorderLevel * 0.5) return "Critical";
+  if (onHand <= reorderLevel) return "Low";
+  return "OK";
+}
+
+interface ItemFormState {
+  itemCode: string;
+  itemName: string;
+  category: string;
+  unit: string;
+  onHand: string;
+  reorderLevel: string;
+}
+
+const emptyForm: ItemFormState = {
+  itemCode: "",
+  itemName: "",
+  category: categoryRefs[0]?.name ?? "",
+  unit: unitsOfMeasure[0]?.name ?? "",
+  onHand: "0",
+  reorderLevel: "0",
+};
 
 export default function InventoryPage() {
+  const [items, setItems] = useState<InventoryItem[]>(inventoryItems);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All categories");
 
+  const [modalOpen, setModalOpen] = useState(false);
+  const [editingCode, setEditingCode] = useState<string | null>(null);
+  const [form, setForm] = useState<ItemFormState>(emptyForm);
+
+  const categories = ["All categories", ...Array.from(new Set(items.map((i) => i.category)))];
+
   const filtered = useMemo(() => {
-    return inventoryItems.filter((item) => {
+    return items.filter((item) => {
       const matchesSearch =
         item.itemName.toLowerCase().includes(search.toLowerCase()) ||
         item.itemCode.toLowerCase().includes(search.toLowerCase());
       const matchesCategory = category === "All categories" || item.category === category;
       return matchesSearch && matchesCategory;
     });
-  }, [search, category]);
+  }, [items, search, category]);
+
+  function nextItemCode() {
+    const nums = items.map((i) => parseInt(i.itemCode.split("-").pop() ?? "0", 10));
+    const max = nums.length ? Math.max(...nums) : 0;
+    return `ITM-${String(max + 1).padStart(4, "0")}`;
+  }
+
+  function openAdd() {
+    setEditingCode(null);
+    setForm({ ...emptyForm, itemCode: nextItemCode() });
+    setModalOpen(true);
+  }
+
+  function openEdit(item: InventoryItem) {
+    setEditingCode(item.itemCode);
+    setForm({
+      itemCode: item.itemCode,
+      itemName: item.itemName,
+      category: item.category,
+      unit: item.unit,
+      onHand: String(item.onHand),
+      reorderLevel: String(item.reorderLevel),
+    });
+    setModalOpen(true);
+  }
+
+  function closeModal() {
+    setModalOpen(false);
+  }
+
+  function saveItem() {
+    if (!form.itemName.trim()) return;
+    const onHand = Number(form.onHand) || 0;
+    const reorderLevel = Number(form.reorderLevel) || 0;
+    const record: InventoryItem = {
+      itemCode: form.itemCode,
+      itemName: form.itemName.trim(),
+      category: form.category,
+      unit: form.unit,
+      onHand,
+      reorderLevel,
+      status: computeStatus(onHand, reorderLevel),
+    };
+
+    if (editingCode) {
+      setItems((prev) => prev.map((i) => (i.itemCode === editingCode ? record : i)));
+    } else {
+      setItems((prev) => [record, ...prev]);
+    }
+    setModalOpen(false);
+  }
 
   return (
     <AppShell title="Inventory management">
@@ -67,7 +153,7 @@ export default function InventoryPage() {
               className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-2"
             />
           </div>
-          <Button variant="dark">
+          <Button variant="dark" onClick={openAdd}>
             <Plus size={14} strokeWidth={2} />
             Add item
           </Button>
@@ -107,7 +193,10 @@ export default function InventoryPage() {
                     <Badge tone={stockStatusTone(item.status)}>{item.status}</Badge>
                   </td>
                   <td className={`${cell} text-right`}>
-                    <button className="inline-flex size-7 items-center justify-center rounded-md border border-border text-[#52525b] hover:bg-background">
+                    <button
+                      onClick={() => openEdit(item)}
+                      className="inline-flex size-7 items-center justify-center rounded-md border border-border text-[#52525b] hover:bg-background"
+                    >
                       <Pencil size={13} strokeWidth={1.8} />
                     </button>
                   </td>
@@ -147,6 +236,99 @@ export default function InventoryPage() {
           </div>
         </div>
       </Card>
+
+      <Modal
+        open={modalOpen}
+        onClose={closeModal}
+        title={editingCode ? `Edit item — ${editingCode}` : "Add item"}
+      >
+        <div className="flex flex-col gap-3">
+          <div className="grid grid-cols-2 gap-3">
+            <Field label="Item code">
+              <input readOnly value={form.itemCode} className="input" />
+            </Field>
+            <Field label="Item name">
+              <input
+                value={form.itemName}
+                onChange={(e) => setForm((f) => ({ ...f, itemName: e.target.value }))}
+                placeholder="e.g. Bond Paper A4"
+                className="input placeholder:text-muted-2"
+              />
+            </Field>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            <Field label="Category">
+              <select
+                value={form.category}
+                onChange={(e) => setForm((f) => ({ ...f, category: e.target.value }))}
+                className="input"
+              >
+                {categoryRefs.map((c) => (
+                  <option key={c.name} value={c.name}>
+                    {c.name}
+                  </option>
+                ))}
+              </select>
+            </Field>
+            <Field label="Unit of measure">
+              <select
+                value={form.unit}
+                onChange={(e) => setForm((f) => ({ ...f, unit: e.target.value }))}
+                className="input"
+              >
+                {unitsOfMeasure.map((u) => (
+                  <option key={u.name} value={u.name}>
+                    {u.name}
+                  </option>
+                ))}
+              </select>
+            </Field>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            <Field label="Quantity on hand">
+              <input
+                type="number"
+                min={0}
+                value={form.onHand}
+                onChange={(e) => setForm((f) => ({ ...f, onHand: e.target.value }))}
+                className="input"
+              />
+            </Field>
+            <Field label="Reorder level">
+              <input
+                type="number"
+                min={0}
+                value={form.reorderLevel}
+                onChange={(e) => setForm((f) => ({ ...f, reorderLevel: e.target.value }))}
+                className="input"
+              />
+            </Field>
+          </div>
+          <div className="flex items-center justify-between rounded-lg border border-border-soft bg-background px-3 py-2.5 text-[12.5px]">
+            <span className="text-muted">Resulting status</span>
+            <Badge tone={stockStatusTone(computeStatus(Number(form.onHand) || 0, Number(form.reorderLevel) || 0))}>
+              {computeStatus(Number(form.onHand) || 0, Number(form.reorderLevel) || 0)}
+            </Badge>
+          </div>
+        </div>
+        <ModalFooter>
+          <Button variant="outline" onClick={closeModal}>
+            Cancel
+          </Button>
+          <Button variant="dark" onClick={saveItem}>
+            {editingCode ? "Save changes" : "Add item"}
+          </Button>
+        </ModalFooter>
+      </Modal>
     </AppShell>
+  );
+}
+
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <label className="flex flex-col gap-1.5 text-xs font-semibold text-muted">
+      {label}
+      {children}
+    </label>
   );
 }

@@ -7,22 +7,31 @@ import { Card, CardHeader } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Badge, requestStatusTone } from "@/components/ui/Badge";
 import { myRequests, inventoryItems } from "@/lib/mock-data";
+import type { SupplyRequest } from "@/lib/types";
 
 interface DraftLine {
   itemName: string;
   qty: number;
 }
 
+function nextRequestRef(list: SupplyRequest[]) {
+  const nums = list.map((r) => parseInt(r.refNo.split("-").pop() ?? "0", 10));
+  const max = nums.length ? Math.max(...nums) : 0;
+  return `REQ-${String(max + 1).padStart(4, "0")}`;
+}
+
 export default function RequestSuppliesPage() {
+  const [requests, setRequests] = useState<SupplyRequest[]>(myRequests);
   const [lines, setLines] = useState<DraftLine[]>([
     { itemName: "Bond Paper A4", qty: 10 },
     { itemName: "Ballpen (Black)", qty: 24 },
   ]);
   const [pendingItem, setPendingItem] = useState(inventoryItems[0].itemName);
   const [pendingQty, setPendingQty] = useState(1);
-  const [selectedRef, setSelectedRef] = useState(myRequests[0].refNo);
+  const [selectedRef, setSelectedRef] = useState(requests[0].refNo);
+  const [formError, setFormError] = useState("");
 
-  const selected = myRequests.find((r) => r.refNo === selectedRef) ?? myRequests[0];
+  const selected = requests.find((r) => r.refNo === selectedRef) ?? requests[0];
 
   function addLine() {
     if (!pendingItem || pendingQty <= 0) return;
@@ -32,6 +41,29 @@ export default function RequestSuppliesPage() {
 
   function removeLine(index: number) {
     setLines((prev) => prev.filter((_, i) => i !== index));
+  }
+
+  function submitRequest() {
+    if (lines.length === 0) {
+      setFormError("Add at least one item before submitting your request.");
+      return;
+    }
+    const today = new Date().toLocaleDateString("en-US", {
+      month: "long",
+      day: "2-digit",
+      year: "numeric",
+    });
+    const record: SupplyRequest = {
+      refNo: nextRequestRef(requests),
+      date: today,
+      itemCount: lines.length,
+      status: "Pending",
+      items: lines,
+    };
+    setRequests((prev) => [record, ...prev]);
+    setSelectedRef(record.refNo);
+    setLines([]);
+    setFormError("");
   }
 
   return (
@@ -116,7 +148,8 @@ export default function RequestSuppliesPage() {
             )}
           </div>
 
-          <Button variant="dark" className="self-end">
+          {formError && <p className="text-[12px] font-medium text-critical-text">{formError}</p>}
+          <Button variant="dark" className="self-end" onClick={submitRequest}>
             Submit request
           </Button>
         </Card>
@@ -125,12 +158,12 @@ export default function RequestSuppliesPage() {
           <Card>
             <CardHeader title="My request status" />
             <div className="flex flex-col">
-              {myRequests.map((r, i) => (
+              {requests.map((r, i) => (
                 <button
                   key={r.refNo}
                   onClick={() => setSelectedRef(r.refNo)}
                   className={`flex items-center justify-between py-2.5 text-left text-[12.5px] ${
-                    i !== myRequests.length - 1 ? "border-b border-border-soft" : ""
+                    i !== requests.length - 1 ? "border-b border-border-soft" : ""
                   } ${r.refNo === selectedRef ? "opacity-100" : "opacity-70 hover:opacity-100"}`}
                 >
                   <div className="flex flex-col gap-0.5">

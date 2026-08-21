@@ -6,6 +6,7 @@ import { AppShell } from "@/components/layout/AppShell";
 import { Card, CardHeader } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { deliveries, inventoryItems } from "@/lib/mock-data";
+import type { DeliveryRecord } from "@/lib/types";
 
 interface DraftLine {
   itemName: string;
@@ -13,7 +14,14 @@ interface DraftLine {
   unitCost: number;
 }
 
+function nextDeliveryRef(list: DeliveryRecord[]) {
+  const nums = list.map((d) => parseInt(d.refNo.split("-").pop() ?? "0", 10));
+  const max = nums.length ? Math.max(...nums) : 0;
+  return `DEL-2024-${String(max + 1).padStart(3, "0")}`;
+}
+
 export default function DeliveriesPage() {
+  const [deliveryList, setDeliveryList] = useState<DeliveryRecord[]>(deliveries);
   const [lines, setLines] = useState<DraftLine[]>([
     { itemName: "Bond Paper A4", qty: 50, unitCost: 220 },
     { itemName: "Correction Fluid", qty: 30, unitCost: 45 },
@@ -21,8 +29,13 @@ export default function DeliveriesPage() {
   const [pendingItem, setPendingItem] = useState(inventoryItems[0].itemName);
   const [pendingQty, setPendingQty] = useState(1);
   const [pendingCost, setPendingCost] = useState(0);
+  const [supplier, setSupplier] = useState("");
+  const [orNumber, setOrNumber] = useState("");
+  const [dateDelivered, setDateDelivered] = useState("2024-05-26");
+  const [formError, setFormError] = useState("");
 
   const total = lines.reduce((sum, l) => sum + l.qty * l.unitCost, 0);
+  const refNo = nextDeliveryRef(deliveryList);
 
   function addLine() {
     if (!pendingItem || pendingQty <= 0) return;
@@ -35,6 +48,32 @@ export default function DeliveriesPage() {
     setLines((prev) => prev.filter((_, i) => i !== index));
   }
 
+  function formatDate(iso: string) {
+    const d = new Date(`${iso}T00:00:00`);
+    if (Number.isNaN(d.getTime())) return iso;
+    return d.toLocaleDateString("en-US", { month: "long", day: "2-digit", year: "numeric" });
+  }
+
+  function saveDelivery() {
+    if (!supplier.trim() || lines.length === 0) {
+      setFormError("Supplier name and at least one delivery item are required.");
+      return;
+    }
+    const record: DeliveryRecord = {
+      refNo,
+      supplier: supplier.trim(),
+      date: formatDate(dateDelivered),
+      itemCount: lines.length,
+      items: lines,
+      totalCost: total,
+    };
+    setDeliveryList((prev) => [record, ...prev]);
+    setLines([]);
+    setSupplier("");
+    setOrNumber("");
+    setFormError("");
+  }
+
   return (
     <AppShell title="Record deliveries">
       <div className="grid grid-cols-[1.4fr_1fr] gap-3.5">
@@ -43,19 +82,34 @@ export default function DeliveriesPage() {
 
           <div className="grid grid-cols-2 gap-3">
             <Field label="Delivery ref. no.">
-              <input readOnly value="DEL-2024-083" className="input" />
+              <input readOnly value={refNo} className="input" />
             </Field>
             <Field label="Date delivered">
-              <input type="date" defaultValue="2024-05-26" className="input" />
+              <input
+                type="date"
+                value={dateDelivered}
+                onChange={(e) => setDateDelivered(e.target.value)}
+                className="input"
+              />
             </Field>
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <Field label="Supplier">
-              <input placeholder="Supplier name" className="input placeholder:text-muted-2" />
+              <input
+                value={supplier}
+                onChange={(e) => setSupplier(e.target.value)}
+                placeholder="Supplier name"
+                className="input placeholder:text-muted-2"
+              />
             </Field>
             <Field label="OR / PO number">
-              <input placeholder="e.g. OR-00482" className="input placeholder:text-muted-2" />
+              <input
+                value={orNumber}
+                onChange={(e) => setOrNumber(e.target.value)}
+                placeholder="e.g. OR-00482"
+                className="input placeholder:text-muted-2"
+              />
             </Field>
           </div>
 
@@ -133,11 +187,16 @@ export default function DeliveriesPage() {
             )}
           </div>
 
+          {formError && (
+            <p className="text-[12px] font-medium text-critical-text">{formError}</p>
+          )}
           <div className="flex items-center justify-between border-t border-border-soft pt-3.5">
             <span className="text-[13px] font-semibold">
               Total: <span className="font-extrabold">&#8369;{total.toLocaleString()}.00</span>
             </span>
-            <Button variant="dark">Save delivery</Button>
+            <Button variant="dark" onClick={saveDelivery}>
+              Save delivery
+            </Button>
           </div>
         </Card>
 
@@ -151,11 +210,11 @@ export default function DeliveriesPage() {
             }
           />
           <div className="flex flex-col">
-            {deliveries.map((d, i) => (
+            {deliveryList.map((d, i) => (
               <div
                 key={d.refNo}
                 className={`flex items-center justify-between py-2.5 text-[12.5px] ${
-                  i !== deliveries.length - 1 ? "border-b border-border-soft" : ""
+                  i !== deliveryList.length - 1 ? "border-b border-border-soft" : ""
                 }`}
               >
                 <div className="flex flex-col gap-0.5">

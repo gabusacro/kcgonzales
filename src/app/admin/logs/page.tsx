@@ -26,6 +26,20 @@ export default function SystemLogsPage() {
     [search, action, user],
   );
 
+  function exportCsv() {
+    const header = "Timestamp,User,Action,Module,Description\n";
+    const rows = filtered
+      .map((log) => `"${log.timestamp}","${log.user}","${log.action}","${log.module}","${log.description}"`)
+      .join("\n");
+    const blob = new Blob([header + rows], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "system-logs.csv";
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
   return (
     <AppShell title="System logs (audit trail)">
       <Card>
@@ -41,7 +55,10 @@ export default function SystemLogsPage() {
           </div>
           <Dropdown value={action} onChange={setAction} options={actionTypes} />
           <Dropdown value={user} onChange={setUser} options={users} />
-          <button className="flex h-9.5 items-center gap-1.5 rounded-lg border border-border bg-surface px-3 text-[13px] font-semibold text-[#3f3f46] hover:bg-background">
+          <button
+            onClick={exportCsv}
+            className="flex h-9.5 items-center gap-1.5 rounded-lg border border-border bg-surface px-3 text-[13px] font-semibold text-[#3f3f46] hover:bg-background"
+          >
             <Download size={14} strokeWidth={1.8} />
             Export
           </button>
